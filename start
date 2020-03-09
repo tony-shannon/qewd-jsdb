@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script will correctly start the QEWD-JSdb Container
+#
+#
+#  Run this startup script from the QEWD-JSDb folder using:
+#
+#     - with persistence:    ./start_p
+#     - without persistence: ./start
+#
+echo 'Starting jsdb container'
+docker run -d --name jsdb --rm --network qewd-jsdb -p 8082:8080 -v /home/joyce/qewd-jsdb:/opt/qewd/mapped  rtweed/qewd-server
+echo 'jsdb Container has been started'

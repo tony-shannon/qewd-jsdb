@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script will cleanly stop the jsdb Container by issuing a command to QEWD to stop
+#
+#
+#  Run this script from the QEWD-jsdb folder using:
+#
+#     ./stop
+#
+echo 'Stopping jsdb Container'
+#
+#  Send authenticated requests to cleanly shut down QEWD Containers
+#
+docker run -it --name jsdb_shutdown --rm --network qewd-jsdb -v $PWD:/node -e "node_script=shutdown" rtweed/node-runner
